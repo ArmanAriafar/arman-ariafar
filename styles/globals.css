@@ -1,16 +1,85 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    position: relative;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-* {
-  box-sizing: border-box;
+.swiper-slide {
+    background: none;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skills .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.skills .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+
+.skills .parallax-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+.skills .swiper-slide .text {
+    line-height: 1.3;
+}
+
+.works .swiper-pagination {
+    bottom: 0 !important;
+}
+
+.works .swiper-wrapper {
+    transition-timing-function: ease-out;
+    transition-timing-function: linear;
+}
+
+.navCompBtn {
+    position: relative;
+    right: 0;
+    transition: 500ms ;
+}
+
+.activeClassName {
+    color: #fff;
+    right: 10px;
 }
