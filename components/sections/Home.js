@@ -24,11 +24,7 @@ export default function Home({ isActive }) {
     };
 
     return (
-        <motion.header
-            variants={Variants}
-            initial="hidden"
-            animate="animate"
-            exit={{ opacity: "0" }}
+        <header
             className="
             flex h-full max-h-screen min-h-screen w-full max-w-md items-end justify-center bg-arman1 bg-cover 
             bg-center lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"
@@ -47,6 +43,6 @@ export default function Home({ isActive }) {
                     className="text-3xl lg:text-4xl"
                 />
             </div>
-        </motion.header>
+        </header>
     );
 }

@@ -5,6 +5,7 @@ import "swiper/css/effect-creative";
 import { EffectCreative } from "swiper";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 //? Components
 import NavComp from "../components/Layout/NavigationComp";
@@ -12,6 +13,15 @@ import Home from "../components/sections/Home";
 import ContactMe from "../components/sections/ContactMe";
 import Works from "../components/sections/Works";
 import Skills from "../components/sections/Skills";
+
+const Variants = {
+    hidden: {
+        y: "100%",
+    },
+    animate: {
+        y: 0,
+    },
+};
 
 //? Comp
 export default function App() {
@@ -58,14 +68,64 @@ export default function App() {
     } else if (screenWidth >= 1024) {
         console.log(isActive);
         return (
-            <header className="mx-auto hidden min-h-screen w-full max-w-5xl grid-cols-[30%_70%] items-center justify-self-center lg:grid xl:max-w-6xl">
+            <header className="mx-auto hidden min-h-screen w-full max-w-5xl grid-cols-[30%_70%] items-center justify-self-center overflow-hidden lg:grid xl:max-w-6xl">
                 <NavComp setIsActive={setIsActive} isActive={isActive} />
-                <AnimatePresence exitBeforeEnter>
-                    <Home isActive={isActive} />
-                    <Skills isActive={isActive} />
-                    <Works isActive={isActive} />
-                    <ContactMe isActive={isActive} />
-                </AnimatePresence>
+                <div className="relative h-full w-full">
+                    <AnimatePresence>
+                        {isActive === 1 && (
+                            <motion.div
+                                variants={Variants}
+                                initial="hidden"
+                                animate="animate"
+                                exit={{ y: "-100%" }}
+                                transition={{ type: "tween", duration: 1 }}
+                                className="absolute top-0 left-0 h-full w-full"
+                                key="home"
+                            >
+                                <Home />
+                            </motion.div>
+                        )}
+                        {isActive === 2 && (
+                            <motion.div
+                                variants={Variants}
+                                initial="hidden"
+                                animate="animate"
+                                exit={{ y: "-100%" }}
+                                transition={{ type: "tween", duration: 1 }}
+                                className="absolute top-0 left-0 h-full w-full"
+                                key="skills"
+                            >
+                                <Skills />
+                            </motion.div>
+                        )}
+                        {isActive === 3 && (
+                            <motion.div
+                                variants={Variants}
+                                initial="hidden"
+                                animate="animate"
+                                exit={{ y: "-100%" }}
+                                transition={{ type: "tween", duration: 1 }}
+                                className="absolute top-0 left-0 h-full w-full"
+                                key="works"
+                            >
+                                <Works />
+                            </motion.div>
+                        )}
+                        {isActive === 4 && (
+                            <motion.div
+                                variants={Variants}
+                                initial="hidden"
+                                animate="animate"
+                                exit={{ y: "-100%" }}
+                                transition={{ type: "tween", duration: 1 }}
+                                className="absolute top-0 left-0 h-full w-full"
+                                key="contactMe"
+                            >
+                                <ContactMe />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
             </header>
         );
     }

@@ -1,6 +1,5 @@
 //? Required
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 //? Comps
 import DesignSlider from "../ui/DesingSlider";
@@ -11,25 +10,7 @@ import Coding from "../ui/Coding";
 import SoftSkills from "../ui/SoftSkills";
 
 //? Comp
-export default function Skills({ isActive }) {
-    const Variants = {
-        hidden: {
-            opacity: 0,
-        },
-        animate: {
-            display: isActive === 2 ? "flex" : "none",
-            opacity: isActive === 2 ? 1 : 0,
-            transition: {
-                type: "tween",
-                duration: 1,
-                delay: isActive === 2 ? 1 : 0,
-                display: {
-                    delay: 1,
-                },
-            },
-        },
-    };
-
+export default function Skills() {
     const [screenWidth, setScreenWidth] = useState(0);
     const [active, setActive] = useState(2);
     useEffect(() => {
@@ -37,11 +18,7 @@ export default function Skills({ isActive }) {
         setScreenWidth(screenWidth);
     }, []);
     return (
-        <motion.section
-            variants={Variants}
-            initial="hidden"
-            animate="animate"
-            exit={{ opacity: "0" }}
+        <section
             className="
             flex h-full max-h-screen min-h-screen w-full max-w-md flex-col items-center justify-start
             lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"
@@ -76,6 +53,6 @@ export default function Skills({ isActive }) {
                     {active === 3 && <SoftSkills />}
                 </div>
             )}
-        </motion.section>
+        </section>
     );
 }

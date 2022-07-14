@@ -1,33 +1,6 @@
-//? Required
-import { motion } from "framer-motion";
-
-export default function ContactMe({ isActive }) {
-    const Variants = {
-        hidden: {
-            opacity: 0,
-        },
-        animate: {
-            display: isActive === 4 ? "inline" : "none",
-            opacity: isActive === 4 ? 1 : 0,
-            transition: {
-                type: "tween",
-                duration: 1,
-                delay: isActive === 4 ? 1 : 0,
-                display: {
-                    delay: 1,
-                },
-            },
-        },
-    };
+export default function ContactMe() {
     return (
-        <motion.section
-            variants={Variants}
-            initial="hidden"
-            animate="animate"
-            exit={{ opacity: "0" }}
-            className="h-full max-h-screen w-full bg-arman2 bg-cover bg-center"
-            id="ContactMe"
-        >
+        <section className="h-full max-h-screen w-full bg-arman2 bg-cover bg-center" id="ContactMe">
             <div className="flex h-full w-full items-center justify-center bg-zinc-900/80">
                 <div className="flex w-fit flex-col items-center justify-center">
                     <h6 className="text-2xl font-light text-white lg:text-4xl">
@@ -47,6 +20,6 @@ export default function ContactMe({ isActive }) {
                     </div>
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 }
