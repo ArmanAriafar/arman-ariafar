@@ -1,7 +1,6 @@
 //? Required
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Variants } from "../utils/AnimatePerComps";
 
 //? Comps
 import DesignSlider from "../ui/DesingSlider";
@@ -12,7 +11,25 @@ import Coding from "../ui/Coding";
 import SoftSkills from "../ui/SoftSkills";
 
 //? Comp
-export default function Skills() {
+export default function Skills({ isActive }) {
+    const Variants = {
+        hidden: {
+            opacity: 0,
+        },
+        animate: {
+            display: isActive === 2 ? "flex" : "none",
+            opacity: isActive === 2 ? 1 : 0,
+            transition: {
+                type: "tween",
+                duration: 1,
+                delay: isActive === 2 ? 1 : 0,
+                display: {
+                    delay: 1,
+                },
+            },
+        },
+    };
+
     const [screenWidth, setScreenWidth] = useState(0);
     const [active, setActive] = useState(2);
     useEffect(() => {
@@ -24,7 +41,7 @@ export default function Skills() {
             variants={Variants}
             initial="hidden"
             animate="animate"
-            exit={{ y: "-100vh" }}
+            exit={{ opacity: "0" }}
             className="
             flex h-full max-h-screen min-h-screen w-full max-w-md flex-col items-center justify-start
             lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"

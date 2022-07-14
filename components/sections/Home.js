@@ -1,17 +1,34 @@
 //? Required
 import ReactTyped from "react-typed";
 import { motion } from "framer-motion";
-import { Variants } from "../utils/AnimatePerComps";
-
 
 //? Comp
-export default function Home() {
+export default function Home({ isActive }) {
+    const Variants = {
+        hidden: {
+            display: "none",
+            opacity: 0,
+        },
+        animate: {
+            display: isActive === 1 ? "flex" : "none",
+            opacity: isActive === 1 ? 1 : 0,
+            transition: {
+                type: "tween",
+                duration: 1,
+                delay: isActive === 1 ? 1 : 0,
+                display: {
+                    delay: 1,
+                },
+            },
+        },
+    };
+
     return (
         <motion.header
             variants={Variants}
             initial="hidden"
             animate="animate"
-            exit={{ y: "-100vh" }}
+            exit={{ opacity: "0" }}
             className="
             flex h-full max-h-screen min-h-screen w-full max-w-md items-end justify-center bg-arman1 bg-cover 
             bg-center lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"

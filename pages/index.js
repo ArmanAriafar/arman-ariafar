@@ -60,17 +60,11 @@ export default function App() {
         return (
             <header className="mx-auto hidden min-h-screen w-full max-w-5xl grid-cols-[30%_70%] items-center justify-self-center lg:grid xl:max-w-6xl">
                 <NavComp setIsActive={setIsActive} isActive={isActive} />
-
-                <AnimatePresence>
-                    {isActive === 1 ? (
-                        <Home />
-                    ) : isActive === 2 ? (
-                        <Skills />
-                    ) : isActive === 3 ? (
-                        <Works />
-                    ) : (
-                        <ContactMe />
-                    )}
+                <AnimatePresence exitBeforeEnter>
+                    <Home isActive={isActive} />
+                    <Skills isActive={isActive} />
+                    <Works isActive={isActive} />
+                    <ContactMe isActive={isActive} />
                 </AnimatePresence>
             </header>
         );
