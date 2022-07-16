@@ -7,7 +7,7 @@ export default function Home() {
         <header
             className="
             flex h-full max-h-screen min-h-screen w-full max-w-md items-end justify-center bg-arman1 bg-cover 
-            bg-center lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"
+            bg-center font-sans lg:max-w-3xl lg:opacity-90 xl:max-w-4xl"
             id="HomeSection"
         >
             <div className="w-full px-8 pb-32 text-4xl font-thin text-zinc-800 lg:text-5xl" dir="ltr">

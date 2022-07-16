@@ -19,7 +19,7 @@ export default function NavComp({ setIsActive, isActive, slideTo }) {
         screenWidth <= 1023 && slideTo(1);
     };
     return (
-        <nav className="z-10 grid h-full w-full grid-rows-[2fr_1.8fr_1fr] items-center justify-self-center bg-zinc-900 px-8">
+        <nav className="z-10 grid h-full w-full grid-rows-[1.8fr_1fr_1fr] items-center justify-self-center bg-zinc-900 px-8">
             <div className="w-full self-start">
                 <div className="mx-auto aspect-square h-fit w-[90%] overflow-hidden rounded-full border-[10px] border-white/10 bg-white/5 lg:w-auto">
                     <Image
@@ -41,7 +41,7 @@ export default function NavComp({ setIsActive, isActive, slideTo }) {
                 </div>
             </div>
             <div className="w-full">
-                <ul className="mr-5 list-disc font-bold leading-8 text-white">
+                <ul className="mr-5 list-disc font-bold leading-8 text-white no-underline">
                     <li>
                         <button
                             onClick={() => clickHandler(1)}

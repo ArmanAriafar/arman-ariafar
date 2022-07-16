@@ -30,10 +30,12 @@ export default function WorksArticle({ imgSrc, title, subtitle, information, git
                     })}
                 </div>
             </div>
-            <div className="grid grid-cols-2 items-center justify-items-center self-center text-sm font-bold text-white">
-                <a href={liveLink}>Live at Vercel</a>
-                <a href={github}>Github Repository</a>
-            </div>
+            {github && (
+                <div className="grid grid-cols-2 items-center justify-items-center self-center text-sm font-bold text-white">
+                    <a href={liveLink}>Live at Vercel</a>
+                    <a href={github}>Github Repository</a>
+                </div>
+            )}
         </article>
     );
 }
