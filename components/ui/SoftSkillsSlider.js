@@ -26,28 +26,18 @@ export default function SoftSkillsSlider() {
                 navigation={true}
                 modules={[Parallax, Pagination, Navigation]}
             >
-                <div
-                    slot="container-start"
-                    className="parallax-bg bg-softskills"
-                    data-swiper-parallax="-50%"
-                ></div>
+                <div slot="container-start" className="parallax-bg bg-softskills" data-swiper-parallax="-50%"></div>
                 <SwiperSlide>
                     <article className="w-full overflow-hidden bg-black/90 px-4 py-4">
-                        <div
-                            className="title text-2xl font-thin"
-                            data-swiper-parallax="-500"
-                        >
+                        <div className="title text-2xl font-thin" data-swiper-parallax="-500">
                             درباره من
                         </div>
-                        <div
-                            className="text mt-2 text-base"
-                            data-swiper-parallax="-100"
-                        >
+                        <div className="text mt-2 text-base" data-swiper-parallax="-100">
                             <ul className="leading-8 text-white/70">
                                 <li>دارای کاردانی طراحی صفحات وب</li>
                                 <li>مسلط به زبان انگلیسی</li>
                                 <li>وضعیت تاهل مجرد</li>
-                                <li>متولد </li>
+                                <li>متولد ۱۳۷۹/۰۶/۲۱</li>
                                 <li>ساکن تهران</li>
                             </ul>
                         </div>
@@ -55,16 +45,10 @@ export default function SoftSkillsSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <article className="w-full overflow-hidden bg-black/90 px-4 py-4">
-                        <div
-                            className="title text-2xl font-thin"
-                            data-swiper-parallax="-500"
-                        >
+                        <div className="title text-2xl font-thin" data-swiper-parallax="-500">
                             مهارت‌های محیط‌کاری
                         </div>
-                        <div
-                            className="text mt-2 text-base"
-                            data-swiper-parallax="-100"
-                        >
+                        <div className="text mt-2 text-base" data-swiper-parallax="-100">
                             <ul className="leading-8 text-white/70">
                                 <li>وقت‌شناس و مدیریت تایم</li>
                                 <li>اشتیاق به مشارکت در پروژه</li>
@@ -80,16 +64,10 @@ export default function SoftSkillsSlider() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <article className="w-full overflow-hidden bg-black/90 px-4 py-4">
-                        <div
-                            className="title text-2xl font-thin"
-                            data-swiper-parallax="-500"
-                        >
+                        <div className="title text-2xl font-thin" data-swiper-parallax="-500">
                             مهارت‌های کارگروهی
                         </div>
-                        <div
-                            className="text mt-2 text-base"
-                            data-swiper-parallax="-100"
-                        >
+                        <div className="text mt-2 text-base" data-swiper-parallax="-100">
                             <ul className="leading-8 text-white/70">
                                 <li>مسئولیت‌پذیر</li>
                                 <li>انتقادگرا و انتقادپذیر</li>

@@ -16,7 +16,7 @@ export default function WorksSlider() {
     const [prevData, setPrevData] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get("http://localhost:3000/api/data");
+            const { data } = await axios.get("https://arman-ariafar.vercel.app/api/data");
             setPrevData(data);
         };
         getData();
