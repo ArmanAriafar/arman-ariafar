@@ -76,7 +76,7 @@ body {
 .navCompBtn {
     position: relative;
     right: 0;
-    transition: 500ms ;
+    transition: 500ms;
 }
 
 .activeClassName {

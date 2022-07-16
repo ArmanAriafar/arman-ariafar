@@ -1,5 +1,6 @@
 //? Required
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 //? Icons
 import { IoLogoWhatsapp, IoIosMail } from "react-icons/io";
@@ -7,7 +8,16 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 
 //? Comp
-export default function NavComp({ setIsActive, isActive }) {
+export default function NavComp({ setIsActive, isActive, slideTo }) {
+    const [screenWidth, setScreenWidth] = useState(0);
+    useEffect(() => {
+        const screenWidth = window.screen.width;
+        setScreenWidth(screenWidth);
+    }, []);
+    const clickHandler = (slide) => {
+        setIsActive(slide);
+        screenWidth <= 1023 && slideTo(1);
+    };
     return (
         <nav className="z-10 grid h-full w-full grid-rows-[2fr_1.8fr_1fr] items-center justify-self-center bg-zinc-900 px-8">
             <div className="w-full self-start">
@@ -34,7 +44,7 @@ export default function NavComp({ setIsActive, isActive }) {
                 <ul className="mr-5 list-disc font-bold leading-8 text-white">
                     <li>
                         <button
-                            onClick={() => setIsActive(1)}
+                            onClick={() => clickHandler(1)}
                             className={`navCompBtn ${isActive === 1 ? "activeClassName" : "text-white/50"}`}
                         >
                             خانه
@@ -42,7 +52,7 @@ export default function NavComp({ setIsActive, isActive }) {
                     </li>
                     <li>
                         <button
-                            onClick={() => setIsActive(2)}
+                            onClick={() => clickHandler(2)}
                             className={`navCompBtn ${isActive === 2 ? "activeClassName" : "text-white/50"}`}
                         >
                             مهارت‌ها
@@ -50,7 +60,7 @@ export default function NavComp({ setIsActive, isActive }) {
                     </li>
                     <li>
                         <button
-                            onClick={() => setIsActive(3)}
+                            onClick={() => clickHandler(3)}
                             className={`navCompBtn ${isActive === 3 ? "activeClassName" : "text-white/50"}`}
                         >
                             نمونه‌کارها
@@ -58,7 +68,7 @@ export default function NavComp({ setIsActive, isActive }) {
                     </li>
                     <li>
                         <button
-                            onClick={() => setIsActive(4)}
+                            onClick={() => clickHandler(4)}
                             className={`navCompBtn ${isActive === 4 ? "activeClassName" : "text-white/50"}`}
                         >
                             ارتباط با من

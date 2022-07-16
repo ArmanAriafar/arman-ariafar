@@ -1,28 +1,8 @@
 //? Required
 import ReactTyped from "react-typed";
-import { motion } from "framer-motion";
 
 //? Comp
-export default function Home({ isActive }) {
-    const Variants = {
-        hidden: {
-            display: "none",
-            opacity: 0,
-        },
-        animate: {
-            display: isActive === 1 ? "flex" : "none",
-            opacity: isActive === 1 ? 1 : 0,
-            transition: {
-                type: "tween",
-                duration: 1,
-                delay: isActive === 1 ? 1 : 0,
-                display: {
-                    delay: 1,
-                },
-            },
-        },
-    };
-
+export default function Home() {
     return (
         <header
             className="

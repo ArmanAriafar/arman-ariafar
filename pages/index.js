@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import { EffectCreative } from "swiper";
+import { EffectCreative, Virtual } from "swiper";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
@@ -31,12 +31,18 @@ export default function App() {
         setScreenWidth(screenWidth);
     }, []);
     const [isActive, setIsActive] = useState(1);
+    const [swiperRef, setSwiperRef] = useState(null);
     if (screenWidth <= 1023) {
+        const slideTo = (index) => {
+            swiperRef.slideTo(index - 1, 0);
+        };
         return (
             <Swiper
+                onSwiper={setSwiperRef}
                 direction="vertical"
                 effect={"creative"}
                 speed={800}
+                modules={[EffectCreative, Virtual]}
                 creativeEffect={{
                     prev: {
                         translate: [0, -30, -1],
@@ -45,11 +51,11 @@ export default function App() {
                         translate: [0, "100%", 0],
                     },
                 }}
-                modules={[EffectCreative]}
                 resistanceRatio={0}
                 className="h-full max-h-[100vh] w-full max-w-md bg-zinc-900 lg:hidden"
+                virtual
             >
-                <SwiperSlide>
+                <SwiperSlide virtualIndex={1}>
                     {isActive === 1 ? (
                         <Home />
                     ) : isActive === 2 ? (
@@ -60,13 +66,12 @@ export default function App() {
                         <ContactMe />
                     )}
                 </SwiperSlide>
-                <SwiperSlide>
-                    <NavComp setIsActive={setIsActive} isActive={isActive} />
+                <SwiperSlide virtualIndex={2}>
+                    <NavComp setIsActive={setIsActive} isActive={isActive} slideTo={slideTo} />
                 </SwiperSlide>
             </Swiper>
         );
     } else if (screenWidth >= 1024) {
-        console.log(isActive);
         return (
             <header className="mx-auto hidden min-h-screen w-full max-w-5xl grid-cols-[30%_70%] items-center justify-self-center overflow-hidden lg:grid xl:max-w-6xl">
                 <NavComp setIsActive={setIsActive} isActive={isActive} />
